@@ -1,0 +1,14 @@
+@import "vars";
+@import "scss/variables";
+
+$weather-icons-path:           ".";
+$weather-icons-prefix:         wi;
+$weather-icons-font-family:    weathericons;
+
+[class^="#{$weather-icons-prefix}-"],
+[class*=" #{$weather-icons-prefix}-"] {
+  font-family: '#{$weather-icons-font-family}';
+  @include make-icon();
+}
+
+@import "scss/icon-classes";

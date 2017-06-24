@@ -1,0 +1,168 @@
+// Width and Height
+// ========================================================================
+
+// variable
+// -----------------------
+$sizes: 50, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500;
+$grid-sizes: 'all', 'xs', 'sm', 'md', 'lg', 'xl';
+$width-grid-pc: 'xs', 'sm', 'md';
+
+
+@each $prop, $abbrev in (width: w, height: h) {
+  @each $grid-size in $grid-sizes {
+    @if $grid-size == 'all' {
+      @each $size in $sizes {
+        .#{$abbrev}-#{$size} {
+          #{$prop}: $size * 1px !important;
+        }
+      }
+    } @else {
+      @include media-breakpoint-between($grid-size, $grid-size) {
+        @each $size in $sizes {
+          .#{$abbrev}-#{$grid-size}-#{$size} {
+            #{$prop}: $size * 1px !important;
+          }
+        }
+
+        @if index($width-grid-pc, $grid-size) {
+          .w-#{$grid-size}-100pc {
+            width: 100% !important;
+          }
+        }
+      }
+
+      @if $grid-size == "xl" { // better is @function last-child($grid-sizes)
+        $next-grid-size: breakpoint-next($grid-size, $breakpoints: $grid-breakpoints);
+        @include media-breakpoint-up($next-grid-size) {
+          @each $size in $sizes {
+            .#{$abbrev}-#{$grid-size}-#{$size} {
+              #{$prop}: $size * 1px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.h-full {
+  height: 100% !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+// Margin and Padding
+// ========================================================================
+
+// variable
+// -----------------------
+$lengths: 0, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80;
+// $direction: 'a', 'y', 'x', 't', 'r', 'b', 'l';
+// direction: 'all: a', 'vertical: y', 'horizontal: x', 'top: t', 'right: r', 'bottom: b', 'left: l';
+
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $length in $lengths {
+    $value : if($length != 0, $length * 1px, 0);
+      
+    .#{$abbrev}-a-#{$length},
+    .#{$abbrev}-#{$length} { 
+      #{$prop}: $value !important; 
+    } // a = All sides
+
+    .#{$abbrev}-t-#{$length} { #{$prop}-top:    $value !important; }
+    .#{$abbrev}-r-#{$length} { #{$prop}-right:  $value !important; }
+    .#{$abbrev}-b-#{$length} { #{$prop}-bottom: $value !important; }
+    .#{$abbrev}-l-#{$length} { #{$prop}-left:   $value !important; }
+
+    // Axes
+    .#{$abbrev}-x-#{$length} {
+      #{$prop}-right:  $value !important;
+      #{$prop}-left:   $value !important;
+    }
+    .#{$abbrev}-y-#{$length} {
+      #{$prop}-top:    $value !important;
+      #{$prop}-bottom: $value !important;
+    }
+  }
+}
+
+// Other margin helper
+.m-x-auto {
+  margin-right: auto !important;
+  margin-left:  auto !important;
+}
+
+@include media-breakpoint-down(sm) {
+  .m-xs-0 {
+    margin: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .m-sm-0 {
+    margin: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .m-md-0 {
+    margin: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .m-lg-0 {
+    margin: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .m-xl-0 {
+    margin: 0 !important;
+  }
+}
+
+// Other padding helper
+@include media-breakpoint-down(sm) {
+  .padding-xs-0 {
+    padding: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .padding-sm-0 {
+    padding: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .padding-md-0 {
+    padding: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .padding-lg-0 {
+    padding: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .padding-xl-0 {
+    padding: 0 !important;
+  }
+}
+
+
+// Positioning
+// ========================================================================
+.pos-f-t {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+}

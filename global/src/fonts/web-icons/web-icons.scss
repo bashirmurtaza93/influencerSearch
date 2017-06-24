@@ -1,0 +1,22 @@
+
+@import "vars";
+@import "scss/variables";
+
+$wb-font-path: ".";
+
+@import "scss/path";
+//@import "less/core.less";
+
+[class^="#{$wb-css-prefix}-"],
+[class*=" #{$wb-css-prefix}-"] {
+  font-family: '#{$wb-font-family}';
+
+  @include make-icon();
+}
+
+@import "scss/icons";
+
+// for v3 class
+.pull-right {
+	float: right;
+}
