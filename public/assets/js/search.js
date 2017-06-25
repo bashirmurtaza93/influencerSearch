@@ -12,7 +12,7 @@ function searchInfluencer(){
 
     var async1 = $.ajax({
       type: 'POST',
-      url:'/findInstagram',
+      url:'/instagram',
       data:{
         influencer: data
       },
@@ -22,7 +22,7 @@ function searchInfluencer(){
     });
     var async2 = $.ajax({
       type: 'POST',
-      url:'/findFacebook',
+      url:'/facebook',
       data:{
         influencer: data
       },
@@ -32,7 +32,7 @@ function searchInfluencer(){
     });
     var async3 = $.ajax({
       type: 'POST',
-      url:'/findTwitter',
+      url:'/twitter',
       data:{
         influencer: data
       },
@@ -50,26 +50,11 @@ function searchInfluencer(){
 }
 
 function renderPlatforms(influencerObj){
-  $.each(influencerObj,function(key,val){
-    switch (key) {
-      case 'instagram':
-        renderInstagram(val);
-        break;
-      case 'facebook':
-        console.log('In facebook');
-        break;
-      case 'twitter':
-        console.log('In twitter');
-        break;
 
-
-    }
+  $.each(influencerObj,function(key,json){
+    $('.'+key+'Name').text(json.full_name);
+    $('.'+key+'Followers').text(json.followers);
+    $('.'+key+'Photo').attr('src',json.image);
   });
-
-function renderInstagram(val){
-  $('.instagramName').text(val.user.full_name);
-  $('.instagramFollowers').text(val.user.followed_by.count);
-  $('.instagramPhoto').attr('src',val.user.profile_pic_url_hd);
-}
 
 }
