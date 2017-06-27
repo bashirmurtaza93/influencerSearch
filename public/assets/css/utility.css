@@ -1,2 +1,9 @@
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url("/public/assets/fonts/Mark Simonson - Proxima Nova Alt Regular-webfont.ttf") format("truetype"); }
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1dGlsaXR5LmNzcyJ9 */
+@font-face {
+  font-family: 'circular-medium';
+  src: url("/public/assets/fonts/circular-medium.otf") format("opentype"); }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInV0aWxpdHkuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsNEJBQTRCO0VBQzVCLHlHQUF5RyxFQUFFOztBQUU3RztFQUNFLCtCQUErQjtFQUMvQix3RUFBd0UsRUFBRSIsImZpbGUiOiJ1dGlsaXR5LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ1Byb3hpbWEgTm92YSc7XG4gIHNyYzogdXJsKFwiL3B1YmxpYy9hc3NldHMvZm9udHMvTWFyayBTaW1vbnNvbiAtIFByb3hpbWEgTm92YSBBbHQgUmVndWxhci13ZWJmb250LnR0ZlwiKSBmb3JtYXQoXCJ0cnVldHlwZVwiKTsgfVxuXG5AZm9udC1mYWNlIHtcbiAgZm9udC1mYW1pbHk6ICdjaXJjdWxhci1tZWRpdW0nO1xuICBzcmM6IHVybChcIi9wdWJsaWMvYXNzZXRzL2ZvbnRzL2NpcmN1bGFyLW1lZGl1bS5vdGZcIikgZm9ybWF0KFwib3BlbnR5cGVcIik7IH1cbiJdfQ== */

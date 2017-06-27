@@ -2,32 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/public/global/fonts/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" href="/public/global/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/global/css/bootstrap-extend.min.css">
-    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/assets/css/main.css">
     <script src="/public/assets/js/jquery-3.0.0.min.js"></script>
     <script src="/public/assets/js/search.js"></script>
+    <script src="/public/assets/js/main.js"></script>
     <title>Test</title>
   </head>
   <body>
     <div class="container">
 
-      <h1>Influencer Search</h1>
-      <input type="text" id="influencerSearch" name="search" value="" placeholder="Influencer Name">
-      <button type="button" name="button" id="searchButton">Submit</button>
+      <h1 class="title">INFLUENCER SEARCH</h1>
+      <div class="col-xs-12 info-container">
+        <input type="text" id="influencer-search" name="search" value="" placeholder="Search for influencers here...">
+        <i class="fa fa-search" id="search-button" aria-hidden="true"></i>
+      </div>
 
       <div class="results">
-        <div class="instagramName"></div>
-        <img class="instagramPhoto" src=""/>
-        <div class="instagramFollowers"></div>
+        <div class="name instagram-name"></div>
+        <img class="photo instagram-photo" src=""/>
+        <div class="followers instagram-followers"></div>
 
-        <div class="facebookName"></div>
-          <img class="facebookPhoto" src=""/>
-        <div class="facebookFollowers"></div>
+        <div class="name facebook-name"></div>
+          <img class="photo facebook-photo" src=""/>
+        <div class="followers facebook-followers"></div>
 
-        <div class="twitterName"></div>
-          <img class="twitterPhoto" src=""/>
-        <div class="twitterFollowers"></div>
+        <div class="name twitter-name"></div>
+          <img class="photo twitter-photo" src=""/>
+        <div class="followers twitter-followers"></div>
       </div>
     </div>
   </body>
