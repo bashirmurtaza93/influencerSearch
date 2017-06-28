@@ -2,6 +2,7 @@ var influencerObj = {};
 $(document).ready(function(){
 
   searchInfluencer();
+  searchAgain();
 });
 
 
@@ -51,6 +52,7 @@ function search(){
     }
   });
   $.when(async3,async2,async1).done(function(){
+    fadeOut();
     renderPlatforms(influencerObj);
   })
 }
@@ -59,9 +61,44 @@ function search(){
 function renderPlatforms(influencerObj){
 
   $.each(influencerObj,function(key,json){
+
     $('.'+key+'-name').text(json.full_name);
-    $('.'+key+'-followers').text(json.followers);
+    $('.'+key+'-followers').text(intToString(json.followers));
     $('.'+key+'-photo').attr('src',json.image);
+    $('.platform-section').css('visibility','visible').hide().slideDown(1500);
+  });
+
+}
+
+function fadeOut(){
+  $('.info-container').fadeOut();
+  setTimeout(function(){
+    $('.search-again').css('visibility','visible').css('opacity','1').hide().fadeIn('5000');
+  },4000);
+}
+
+
+function intToString (value) {
+    var suffixes = ["", "k", "m", "b","t"];
+    var suffixNum = Math.floor((""+value).length/3);
+    var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
+    if (shortValue % 1 != 0) {
+        var shortNum = shortValue.toFixed(1);
+    }
+    return shortValue+suffixes[suffixNum];
+}
+
+function searchAgain(){
+  $(document).on('click','.search-again',function(){
+    console.log('here');
+    $('.search-again').fadeTo(1000,0,function(){
+      $(this).css('visibility','hidden');
+    });
+    $('.platform-section').slideUp(1500);
+    setTimeout(function(){
+      $('.info-container').fadeIn(2000);
+    },2000);
+
   });
 
 }

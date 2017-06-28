@@ -9,30 +9,49 @@
     <script src="/public/assets/js/jquery-3.0.0.min.js"></script>
     <script src="/public/assets/js/search.js"></script>
     <script src="/public/assets/js/main.js"></script>
-    <title>Test</title>
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <title>Influencer Search</title>
   </head>
   <body>
     <div class="container">
 
       <h1 class="title">INFLUENCER SEARCH</h1>
+      <h3 class="title search-again">Search again?</h3>
       <div class="col-xs-12 info-container">
-        <input type="text" id="influencer-search" name="search" value="" placeholder="Search for influencers here...">
+        <input type="text" id="influencer-search" name="search" value=""  autofocus="autofocus" placeholder="Search for influencers here...">
         <i class="fa fa-search" id="search-button" aria-hidden="true"></i>
       </div>
 
-      <div class="results">
-        <div class="name instagram-name"></div>
-        <img class="photo instagram-photo" src=""/>
-        <div class="followers instagram-followers"></div>
+      <div class="results col-xs-12">
 
-        <div class="name facebook-name"></div>
+        <div class="platform-section col-xl-4">
+          <img class="photo instagram-photo" src=""/>
+          <hr class="divider"/>
+          <div class="name instagram-name"></div>
+          <div class="followers instagram-followers"></div>
+          <div class="bio instagram-bio"></div>
+        </div>
+
+
+        <div class="platform-section col-xl-4">
           <img class="photo facebook-photo" src=""/>
-        <div class="followers facebook-followers"></div>
+          <hr class="divider"/>
+          <div class="name facebook-name"></div>
+          <div class="followers facebook-followers"></div>
+          <div class="bio facebook-bio"></div>
+        </div>
 
-        <div class="name twitter-name"></div>
+
+        <div class="platform-section col-xl-4">
           <img class="photo twitter-photo" src=""/>
-        <div class="followers twitter-followers"></div>
+          <hr class="divider"/>
+          <div class="name twitter-name"></div>
+          <div class="followers twitter-followers"></div>
+          <div class="bio twitter-bio"></div>
+        </div>
       </div>
+
     </div>
   </body>
 </html>

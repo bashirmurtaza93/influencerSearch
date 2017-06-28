@@ -15,15 +15,26 @@ body{
   padding-top: 20%;
   padding-left: 20%;
 }
+.photo{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+
+}
+
+.platform-section{
+  text-align: center;
+  visibility: hidden;
+}
 
 
 #search-button{
-    font-size: 50px;
-    color: #9C9C9C;
-    cursor: pointer;
+  font-size: 50px;
+  color: #9C9C9C;
+  cursor: pointer;
 }
 #influencer-search{
-  width: 90%;
+  width: 80%;
   border: 0px;
   background-color: transparent;
   color:white;
@@ -42,5 +53,24 @@ body{
 }
 
 .name{
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+}
+.followers{
   font-family: $main-font;
+  color:white;
+  font-size: 20px;
+}
+.divider{
+  color:white;
+  width: 200px;
+}
+.search-again{
+  font-weight: lighter;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 22px;
+  visibility: hidden;
+  color: #e8e8e8;
+  letter-spacing: 0.5px;
 }
