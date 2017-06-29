@@ -19,6 +19,7 @@ body{
   height: 200px;
   width: 200px;
   object-fit: cover;
+  margin-bottom: 10px;
 
 }
 
@@ -52,6 +53,12 @@ body{
   }
 }
 
+.fa{
+  font-size: 20px;
+}
+.bio{
+  letter-spacing: 0.5px;
+}
 .name{
   font-family: 'Open Sans', sans-serif;
   color:white;
@@ -71,6 +78,6 @@ body{
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 22px;
   visibility: hidden;
-  color: #e8e8e8;
+  color: $secondary-color;
   letter-spacing: 0.5px;
 }

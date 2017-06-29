@@ -65,6 +65,8 @@ function renderPlatforms(influencerObj){
     $('.'+key+'-name').text(json.full_name);
     $('.'+key+'-followers').text(intToString(json.followers));
     $('.'+key+'-photo').attr('src',json.image);
+    $('.'+key+'-bio').text(json.biography);
+    $('.'+key+'-link').attr('href',json.link);
     $('.platform-section').css('visibility','visible').hide().slideDown(1500);
   });
 

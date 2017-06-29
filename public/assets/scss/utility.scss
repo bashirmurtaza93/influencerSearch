@@ -10,10 +10,23 @@
     font-family: 'circular-medium';
     src:url('/public/assets/fonts/circular-medium.otf') format('opentype');
   }
-
+$secondary-color:#9C9C9C;
 $main-font:'circular-medium';
 $input-font-size:55px;
 
+
+a{
+  color: $secondary-color;
+  transition: .4s;
+  &:hover{
+    transition: .4s;
+    color:white;
+  }
+}
+
+body{
+  color:white;
+}
 
 @mixin optional-at-root($sel) {
   @at-root #{if(not &, $sel, selector-append(&, $sel))} {
