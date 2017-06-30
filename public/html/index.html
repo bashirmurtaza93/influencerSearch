@@ -9,6 +9,8 @@
     <script src="/public/assets/js/jquery-3.0.0.min.js"></script>
     <script src="/public/assets/js/search.js"></script>
     <script src="/public/assets/js/main.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title>Influencer Search</title>
   </head>
   <body>
@@ -28,7 +30,7 @@
           <div class="name instagram-name"></div>
           <a href="" class="link instagram-link" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
           <hr class="divider"/>
-          <div class="followers instagram-followers"></div>
+          <div class="followers instagram-followers" data-toggle="tooltip" data-placement="top" data-original-title=""></div>
           <div class="bio instagram-bio"></div>
         </div>
 
@@ -38,7 +40,7 @@
           <div class="name facebook-name"></div>
           <a href="" class="link facebook-link" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
           <hr class="divider"/>
-          <div class="followers facebook-followers"></div>
+          <div class="followers facebook-followers" data-toggle="tooltip" data-placement="top" data-original-title=""></div>
           <div class="bio facebook-bio"></div>
         </div>
 
@@ -48,7 +50,7 @@
           <div class="name twitter-name"></div>
           <a href="" class="link twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
           <hr class="divider"/>
-          <div class="followers twitter-followers"></div>
+          <div class="followers twitter-followers" data-toggle="tooltip" data-placement="top" data-original-title=""></div>
           <div class="bio twitter-bio"></div>
         </div>
       </div>
@@ -56,3 +58,8 @@
     </div>
   </body>
 </html>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

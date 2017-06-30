@@ -64,6 +64,7 @@ function renderPlatforms(influencerObj){
 
     $('.'+key+'-name').text(json.full_name);
     $('.'+key+'-followers').text(intToString(json.followers));
+    $('.'+key+'-followers').attr('data-original-title',json.followers.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' Followers');
     $('.'+key+'-photo').attr('src',json.image);
     $('.'+key+'-bio').text(json.biography);
     $('.'+key+'-link').attr('href',json.link);

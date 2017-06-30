@@ -19,7 +19,7 @@ router.post('/', function(req,res){
      return 0;
    }
     //time to make another request... another one!
-     request('https://graph.facebook.com/v2.9/'+id+'?fields=bio,picture.width(800).height(800),engagement,name,username&access_token=1075628395822185|Y0CgNIZP8EiF2esClPtNaki4hiE', function (error, reqResponse, body) {
+     request('https://graph.facebook.com/v2.9/'+id+'?fields=bio,picture.width(800).height(800),engagement,name,username,posts.limit(12){likes.summary(true),comments.summary(true)}&access_token=1075628395822185|Y0CgNIZP8EiF2esClPtNaki4hiE', function (error, reqResponse, body) {
        try{
 
          var jsonFacebook = JSON.parse(body);
@@ -30,7 +30,7 @@ router.post('/', function(req,res){
          var json = facebookCreateJSON(null,true);
 
        }
-
+       console.log(json);
        res.send(json);
 
      });
@@ -48,6 +48,8 @@ function facebookCreateJSON(jsonFacebook,error){
     "link":""
   };
   if(!error){
+    console.log('here');
+     var engagementObj = getFacebookEngagement(jsonFacebook);
      facebookInfo =
     {
       "username": jsonFacebook.username,
@@ -55,11 +57,49 @@ function facebookCreateJSON(jsonFacebook,error){
       "biography": jsonFacebook.bio,
       "image": jsonFacebook.picture.data.url,
       "followers": jsonFacebook.engagement.count,
-      "link":"https://facebook.com/"+jsonFacebook.username
+      "link":"https://facebook.com/"+jsonFacebook.username,
+      "totalLikes":engagementObj.totalLikes,
+      "totalComments":engagementObj.totalComments,
+      "totalEngagement":engagementObj.totalEngagement,
+      "avgLikes":engagementObj.avgLikes,
+      "avgComments":engagementObj.avgComments,
+      "avgEngagement":engagementObj.avgEngagement,
+      "engagementRatio":engagementObj.engagementRatio
+
     }
   }
 
   return facebookInfo;
+}
+
+function getFacebookEngagement(jsonFacebook){
+  var engagementObj = {
+    "totalLikes":"",
+    "totalComments":"",
+    "totalEngagement":"",
+    "avgLikes":"",
+    "avgComments":"",
+    "avgEngagement":"",
+    "engagementRatio":""
+  }
+  var post = 0
+  var likes = 0;
+  var comments = 0;
+  for (var i = 0; i < jsonFacebook.posts.data.length; i++){
+
+    likes += jsonFacebook.posts.data[i].likes.summary.total_count;
+    comments += jsonFacebook.posts.data[i].comments.summary.total_count;
+    post++;
+  }
+
+  engagementObj.totalLikes = likes;
+  engagementObj.totalComments = comments;
+  engagementObj.totalEngagement = likes + comments;
+  engagementObj.avgLikes = likes/post;
+  engagementObj.avgComments = comments/post;
+  engagementObj.avgEngagement = (likes + comments) / post;
+  engagementObj.engagementRatio = ( ( engagementObj.totalEngagement / post) / jsonFacebook.engagement.count) * 100;
+  return engagementObj;
 }
 
 function nameParser(influencer){
