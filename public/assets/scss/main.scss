@@ -1,0 +1,83 @@
+@import 'utility.scss';
+
+body{
+  background:#2a2a2a;
+}
+
+.title{
+  font-family: $main-font;
+  color:white;
+  text-align: center;
+  letter-spacing:-0.5px;
+}
+
+.info-container{
+  padding-top: 20%;
+  padding-left: 20%;
+}
+.photo{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+
+}
+
+.platform-section{
+  text-align: center;
+  visibility: hidden;
+}
+
+
+#search-button{
+  font-size: 50px;
+  color: #9C9C9C;
+  cursor: pointer;
+}
+#influencer-search{
+  width: 80%;
+  border: 0px;
+  background-color: transparent;
+  color:white;
+  font-size: $input-font-size;
+  font-family: $main-font;
+  @include placeholder{
+    color:white;
+    font-size: $input-font-size;
+    font-family: $main-font;
+    // text-align: center;
+  }
+  &:focus{
+    outline:none;
+    outline-offset: 0px;
+  }
+}
+
+.fa{
+  font-size: 20px;
+}
+.bio{
+  letter-spacing: 0.5px;
+}
+.name{
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+}
+.followers{
+  font-family: $main-font;
+  color:white;
+  font-size: 20px;
+}
+.divider{
+  color:white;
+  width: 200px;
+}
+.search-again{
+  font-weight: lighter;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 22px;
+  visibility: hidden;
+  color: $secondary-color;
+  letter-spacing: 0.5px;
+}

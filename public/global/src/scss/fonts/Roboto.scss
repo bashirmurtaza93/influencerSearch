@@ -1,0 +1,25 @@
+// $use-font-family:      "Roboto" !default;
+// $use-font-family-url:  "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" !default;
+// $font-family-base:     $font-family-sans-serif !default;
+
+// $font-weight-override: true !default;
+// $font-weight-light:    300 !default;
+// $font-weight-normal:   400 !default;
+// $font-weight-medium:   500 !default;
+// $font-weight-bold:     700 !default;
+
+// $font-weight-base:     $font-weight-normal !default;
+// $headings-font-weight: $font-weight-normal !default;
+
+$use-font-family:      "Roboto" !default;
+$use-font-family-url:  "http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic" !default;
+$font-family-base:     $font-family-sans-serif !default;
+
+$font-weight-override: true;
+$font-weight-light:    100;
+$font-weight-normal:   300;
+$font-weight-medium:   400;
+$font-weight-bold:     500;
+
+$font-weight-base:     $font-weight-normal;
+$headings-font-weight: $font-weight-medium;
