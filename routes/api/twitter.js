@@ -8,10 +8,10 @@ const path = require('path');
 router.use(bodyParser.urlencoded({extended: true}));
 
 var client = new twitter({
-  consumer_key: '0Zg9dgzNaYnzClHyjVPQNDJY3',
-  consumer_secret: 'An8saegfbVcXghKDtrcOr3KbpBHUsKZRceogm46GhrzL3VVaFx',
-  access_token_key: '384983365-5bhMb7qYStsAuorPlB4EjHi9bSsF3LmI5ddAgCuv',
-  access_token_secret: 'ycpSruTDut6ntp0360YIXjmtlDbLvUcQmVF5xyLocr9ug'
+  consumer_key: 'TOKENHERE',
+  consumer_secret: 'TOKENHERE',
+  access_token_key: 'TOKENHERE',
+  access_token_secret: 'TOKENHERE'
 });
 
 
