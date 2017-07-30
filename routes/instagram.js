@@ -6,7 +6,7 @@ const router = express.Router();
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect('mongodb://bashir93:Platinum1!@ds143132.mlab.com:43132/influencers', (err, database) =>{
+MongoClient.connect('mongodb://DBINFO', (err, database) =>{
   if(err) return console.log(err);
   db = database
 
