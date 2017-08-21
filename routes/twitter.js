@@ -5,13 +5,14 @@ const app = express();
 const twitter = require('twitter');
 const router = express.Router();
 const path = require('path');
+const api = require('private/api-keys.json');
 router.use(bodyParser.urlencoded({extended: true}));
 
 var client = new twitter({
-  consumer_key: 'TOKENHERE',
-  consumer_secret: 'TOKENHERE',
-  access_token_key: 'TOKENHERE',
-  access_token_secret: 'TOKENHERE'
+  consumer_key: api.twitter.consumer_key,
+  consumer_secret: api.twitter.consumer_secret,
+  access_token_key: api.twitter.access_token,
+  access_token_secret: api.twitter.acceess_token_secret
 });
 
 

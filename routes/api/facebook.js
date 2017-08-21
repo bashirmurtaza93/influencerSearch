@@ -4,11 +4,12 @@ const request = require('request');
 const app = express();
 const router = express.Router();
 const path = require('path');
+const api = require('private/api-keys.json');
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/', function(req,res){
   var influencerName = nameParser(req.body.influencer);
-  request('https://graph.facebook.com/v2.9/search?q='+influencerName+'&type=page&access_token=TOKENHERE', function (error, reqResponse, body) {
+  request('https://graph.facebook.com/v2.9/search?q='+influencerName+'&type=page&access_token='+api.facebook, function (error, reqResponse, body) {
    var firstRequest = JSON.parse(body);
    try{
      var id = firstRequest.data[0].id;
@@ -19,7 +20,7 @@ router.post('/', function(req,res){
      return 0;
    }
     //time to make another request... another one!
-     request('https://graph.facebook.com/v2.9/'+id+'?fields=bio,picture.width(800).height(800),engagement,name,username&access_token=TOKENHERE', function (error, reqResponse, body) {
+     request('https://graph.facebook.com/v2.9/'+id+'?fields=bio,picture.width(800).height(800),engagement,name,username&access_token='+api.facebook, function (error, reqResponse, body) {
        try{
 
          var jsonFacebook = JSON.parse(body);

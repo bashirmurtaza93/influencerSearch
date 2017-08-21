@@ -4,9 +4,10 @@ const request = require('request');
 const app = express();
 const router = express.Router();
 const path = require('path');
+const mongoInfo = require('mongo/mongoDB.json');
 const MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect('mongodb://DBINFO', (err, database) =>{
+MongoClient.connect('mongodb://'+mongoInfo.url , (err, database) =>{
   if(err) return console.log(err);
   db = database
 
